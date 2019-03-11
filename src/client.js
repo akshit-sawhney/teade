@@ -19,7 +19,8 @@ Client.prototype.request = function(method, payload, callback) {
 	request({
 	    url: host+':'+port+'/'+method,
 	    method: "POST",
-	    json: payload
+	    json: payload,
+      	    timeout: 10000
 	}, function (error, response, body) {
 		if (!error && response.statusCode == 200) {
 			callback(null, body);
